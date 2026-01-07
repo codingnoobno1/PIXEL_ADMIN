@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI;
 
-if (!MONGODB_URI) {
+if (!MONGO_URI) {
   throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
+    'Please define the MONGO_URI environment variable inside .env.local'
   );
 }
 
@@ -30,7 +30,7 @@ async function dbConnect() {
       dbName: 'QUIZ', // ✅ Shared database for both admin and QUIZ_RAIDERX
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(MONGO_URI, opts).then((mongoose) => {
       console.log('✅ Mongoose connected to QUIZ database');
       return mongoose;
     });

@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
 
-const MONGODB_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI;
 
-if (!MONGODB_URI) {
+if (!MONGO_URI) {
   throw new Error(
-    "Please define the MONGODB_URI environment variable inside .env.local"
+    "Please define the MONGO_URI environment variable"
   );
 }
 
@@ -16,7 +16,7 @@ export async function connectToDatabase() {
     return { client: cachedClient, db: cachedDb };
   }
 
-  const client = await MongoClient.connect(MONGODB_URI, {
+  const client = await MongoClient.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
@@ -30,7 +30,7 @@ export async function connectToDatabase() {
 }
 
 // A promise that resolves to the MongoClient
-const clientPromise = MongoClient.connect(MONGODB_URI, {
+const clientPromise = MongoClient.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
