@@ -1,5 +1,5 @@
 import Faculty from '@models/Faculty'; // Use PascalCase for Mongoose model imports by convention
-import dbConnect from '@utils/dbConnect';
+import dbConnect from '@/lib/dbConnect';
 import { NextResponse } from 'next/server';
 
 export async function POST(request) {

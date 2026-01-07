@@ -1,6 +1,6 @@
 // profile_fetch/route.js
 import Faculty from '@/models/Faculty';
-import dbConnect from '@/utils/dbConnect'; // your mongoose connection helper
+import dbConnect from '@/lib/dbConnect'; // your mongoose connection helper
 import { NextResponse } from 'next/server';
 
 export async function GET(request) {
